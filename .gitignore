@@ -1,0 +1,25 @@
+# Large files
+*.docx
+*.avi
+*.mp4
+*.mov
+*.mpeg
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if adding web projects)
+node_modules/
+*.npm
+*.yarn
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build artifacts
+dist/
+build/
