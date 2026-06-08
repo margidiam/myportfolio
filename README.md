@@ -3,6 +3,8 @@
 I'm **Margarita Diamanti**, a student at Macedonia University studying Applied Informatics.
 
 ## Projects
+<img width="800" height="450" alt="ics24067_final-ezgif com-speed" src="https://github.com/user-attachments/assets/51d35854-9615-4354-b371-d9886d88149b" />
+
 
 ### First Website
 - **Live:** https://dev-tech-vision-consulting.pantheonsite.io/
