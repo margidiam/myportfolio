@@ -1,0 +1,721 @@
+/* ==================== Root Variables ==================== */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --background: #ecf0f1;
+    --surface: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* ==================== General Styles ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: var(--text-primary);
+}
+
+/* ==================== Container Layout ==================== */
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ==================== Sidebar Styles ==================== */
+.sidebar {
+    background: var(--surface);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-header {
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--background);
+}
+
+.sidebar-header h1 {
+    color: var(--primary-color);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* ==================== Search Section ==================== */
+.search-section {
+    display: flex;
+    gap: 8px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid var(--background);
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.search-btn {
+    padding: 12px 15px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 16px;
+}
+
+.search-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* ==================== Location Button ==================== */
+.location-btn {
+    padding: 12px 15px;
+    background: var(--success-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.location-btn:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+}
+
+/* ==================== Favorites Section ==================== */
+.favorites-section {
+    flex: 1;
+}
+
+.favorites-section h3 {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.favorites-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.favorites-list .empty-message {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 12px;
+    padding: 20px 0;
+}
+
+.favorite-item {
+    padding: 10px 12px;
+    background: var(--background);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.favorite-item:hover {
+    background: #dfe6e9;
+    transform: translateX(5px);
+}
+
+.favorite-item.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.remove-favorite {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.remove-favorite:hover {
+    color: var(--accent-color);
+}
+
+/* ==================== Settings Section ==================== */
+.settings-section {
+    padding-top: 15px;
+    border-top: 2px solid var(--background);
+}
+
+.settings-section label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.unit-select {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--background);
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.unit-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* ==================== Main Content ==================== */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+/* ==================== Current Weather Section ==================== */
+.current-weather {
+    background: var(--surface);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+}
+
+.weather-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--background);
+}
+
+.location-info h2 {
+    font-size: 32px;
+    color: var(--text-primary);
+}
+
+.location-info p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.weather-icon {
+    font-size: 64px;
+    color: var(--primary-color);
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.temperature {
+    display: flex;
+    align-items: flex-start;
+}
+
+.temperature span:first-child {
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.degree {
+    font-size: 36px;
+    color: var(--text-secondary);
+    margin-top: 5px;
+}
+
+.weather-description p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.weather-description p:first-child {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: capitalize;
+}
+
+.weather-description p:last-child {
+    color: var(--text-secondary);
+}
+
+/* ==================== Weather Details Grid ==================== */
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: var(--background);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.detail-item:hover {
+    background: #dfe6e9;
+    transform: translateY(-2px);
+}
+
+.detail-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-info .label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-info .value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ==================== Favorite Button ==================== */
+.favorite-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.favorite-btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+.favorite-btn.favorited {
+    background: var(--success-color);
+}
+
+/* ==================== Forecast Section ==================== */
+.forecast-section,
+.hourly-section {
+    background: var(--surface);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: var(--box-shadow);
+}
+
+.forecast-section h3,
+.hourly-section h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.forecast-container,
+.hourly-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+/* ==================== Forecast Card ==================== */
+.forecast-card,
+.hourly-card {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-color));
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.forecast-card:hover,
+.hourly-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.forecast-card h4,
+.hourly-card h4 {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.forecast-card .icon,
+.hourly-card .icon {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.forecast-card p,
+.hourly-card p {
+    font-size: 14px;
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+.forecast-card .temp-range,
+.hourly-card .temp-range {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* ==================== Weather Background Variations ==================== */
+.current-weather.clear {
+    background: linear-gradient(135deg, #FFD89B 0%, #19547B 100%);
+    color: white;
+}
+
+.current-weather.cloudy {
+    background: linear-gradient(135deg, #BCC6CC 0%, #667eea 100%);
+    color: white;
+}
+
+.current-weather.rainy {
+    background: linear-gradient(135deg, #4A5B86 0%, #1e3c72 100%);
+    color: white;
+}
+
+.current-weather.snowy {
+    background: linear-gradient(135deg, #E0E7FF 0%, #B8D4FF 100%);
+    color: var(--text-primary);
+}
+
+.current-weather.thunderstorm {
+    background: linear-gradient(135deg, #2C3E50 0%, #1e1e2e 100%);
+    color: white;
+}
+
+/* ==================== Loading Spinner ==================== */
+.loading-spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.loading-spinner.hidden {
+    display: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==================== Error Toast ==================== */
+.error-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--accent-color);
+    color: white;
+    padding: 16px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    animation: slideIn 0.3s ease;
+}
+
+.error-toast.hidden {
+    display: none;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ==================== Modal ==================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: var(--surface);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.help-text {
+    font-size: 13px;
+}
+
+.help-text a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.help-text a:hover {
+    text-decoration: underline;
+}
+
+.api-input {
+    width: 100%;
+    padding: 12px;
+    margin: 20px 0;
+    border: 2px solid var(--background);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: monospace;
+}
+
+.api-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.api-submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.api-submit-btn:hover {
+    background: #2980b9;
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 250px 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .forecast-container,
+    .hourly-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .sidebar {
+        order: 2;
+    }
+
+    .main-content {
+        order: 1;
+    }
+
+    .weather-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .weather-main {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .temperature span:first-child {
+        font-size: 48px;
+    }
+
+    .weather-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .forecast-container,
+    .hourly-container {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .sidebar {
+        padding: 15px;
+    }
+
+    .current-weather {
+        padding: 20px;
+    }
+
+    .weather-details {
+        grid-template-columns: 1fr;
+    }
+
+    .forecast-container,
+    .hourly-container {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+
+    .modal-content {
+        padding: 25px;
+        margin: 20px;
+    }
+}
+
+/* ==================== Scrollbar Styling ==================== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
