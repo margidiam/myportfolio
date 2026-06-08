@@ -1,30 +1,52 @@
-# Welcome to My Portfolio
+# 👋 Welcome to My Portfolio
 
-I'm **Margarita Diamanti**, a student at Macedonia University studying Applied Informatics.
+I'm **Margarita Diamanti**, an Applied Informatics student at Macedonia University. This repository showcases my work in web development, web design, 3D modeling, and digital innovation.
 
-## Projects
-<img width="800" height="450" alt="ics24067_final-ezgif com-speed" src="https://github.com/user-attachments/assets/51d35854-9615-4354-b371-d9886d88149b" />
+## 🎯 Quick Links
 
+| Section | Description |
+|---------|-------------|
+| **[📋 Full Portfolio](./PORTFOLIO.md)** | Complete project showcase and skills |
+| **[🌐 Web Projects](./projects/dev-tech-vision/)** | Live websites and web development work |
+| **[🎨 3D Design](./projects/3d-design/)** | 3D models and character designs |
+| **[📚 Research](./research/)** | Academic papers and research |
 
-### First Website
+## ✨ Featured Project
+
+### Dev Tech Vision Consulting Website
+A professional consulting website built from the ground up.
+
 - **Live:** https://dev-tech-vision-consulting.pantheonsite.io/
-- My first website project - Dev Tech Vision Consulting
+- **Status:** ✅ Live
+
+![Project Demo](./ics24067_final-ezgif.com-speed.gif)
+
+[View Full Project Details](./projects/dev-tech-vision/)
 
 ---
 
-## Research & Documents
+## 📫 Contact & Connect
 
-- ΤΕΛΙΚΗ ΕΡΕΥΝΑ.pdf - Research documentation
-
----
-
-## About Me
-
-I'm an Applied Informatics student at Macedonia University, passionate about web development, web design, and digital marketing.
-
-**Contact:** margi.diam@gmail.com
+**Email:** margi.diam@gmail.com  
 **Education:** Macedonia University - Applied Informatics
 
 ---
 
-Last updated: 2026-06-07
+## 📁 Repository Structure
+
+```
+margidiam/
+├── README.md                 # This file
+├── PORTFOLIO.md             # Complete portfolio overview
+├── .gitignore              # Git configuration
+├── projects/
+│   ├── dev-tech-vision/    # Website project
+│   └── 3d-design/          # 3D modeling work
+└── research/               # Academic documents
+```
+
+**⭐ For the complete experience, visit [PORTFOLIO.md](./PORTFOLIO.md)**
+
+---
+
+Last updated: June 2026
